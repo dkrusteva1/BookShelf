@@ -1,0 +1,80 @@
+.body-page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 10px;
+    padding: 10px;
+}
+
+.page-header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 15rem;
+    height: 10rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+    background: #ff7eb3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 118, 136, 0.4);
+    margin-bottom: 1rem;
+}
+
+.button:hover {
+    background: #ff4f7a;
+    box-shadow: 0 6px 15px rgba(255, 118, 136, 0.5);
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card-content {
+    row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.warning-message {
+    font-size: 2rem;
+    font-weight: bold;
+}

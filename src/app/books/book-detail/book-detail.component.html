@@ -1,0 +1,84 @@
+<div class="body-page" *ngIf="book">
+    <div class="page-header container">
+        <div class="header-text">
+            Welcome to BookShelf!
+        </div>
+    </div>
+    <div class="header-buttons">
+        <button class="button" routerLink="../../favourites"> Favourites </button>
+        <button class="button" routerLink="./../../">Home</button>
+        <button class="button" class="button" *ngIf="getBookStatus(book.id) == true" (click)="updateFavouritesList(book)"> Like</button>
+        <button class="button" class="button" *ngIf="getBookStatus(book.id) == false" (click)="updateFavouritesList(book)"> Dislike</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>
+                    Book name
+                </th>
+                <td>
+                    {{book?.name}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Authors
+                </th>
+                <td *ngFor="let author of book.authors">
+                    {{author}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Country
+                </th>
+                <td>
+                    {{book.country}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    ISBN
+                </th>
+
+                <td>
+                    {{book.isbn}}
+                </td>
+
+            </tr>
+            <tr>
+                <th>
+                    Media type
+                </th>
+                <td>
+                    {{book.mediaType}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Number of pages
+                </th>
+                <td>
+                    {{book.numberOfPages}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Publisher
+                </th>
+                <td>
+                    {{book.publisher}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Released
+                </th>
+                <td>
+                    {{book.released | date: 'dd/MM/yyyy'}}
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

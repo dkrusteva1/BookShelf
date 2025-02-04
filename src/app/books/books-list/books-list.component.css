@@ -1,0 +1,157 @@
+ .body-page {
+     display: flex;
+     flex-direction: column;
+     align-items: stretch;
+     gap: 10px 10px;
+     padding: 10px;
+ }
+ 
+ .header-text {
+     font-size: 30px;
+     justify-content: center;
+ }
+ 
+ .page-header {
+     background: linear-gradient(135deg, #6a11cb, #2575fc);
+     color: white;
+     text-align: center;
+     padding: 20px;
+     font-size: 24px;
+     font-weight: bold;
+     border-radius: 8px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .buttons-header {
+     display: flex;
+     justify-content: flex-end;
+     gap: 15px;
+     margin: 15px 0;
+ }
+ 
+ .button {
+     background: #ff7eb3;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     font-weight: bold;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: 0.3s ease;
+     box-shadow: 0 4px 10px rgba(255, 118, 136, 0.4);
+ }
+ 
+ .button:hover {
+     background: #ff4f7a;
+     box-shadow: 0 6px 15px rgba(255, 118, 136, 0.5);
+ }
+ 
+ .search-container {
+     display: flex;
+     margin-top: 15px;
+     gap: 10px;
+ }
+ 
+ .search-box {
+     width: 250px;
+     padding: 10px;
+     border-radius: 8px;
+     border: 1px solid #ccc;
+     font-size: 16px;
+ }
+ 
+ .search-button {
+     background: #6200ea;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     font-weight: bold;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: 0.3s ease;
+ }
+ 
+ .search-button:hover {
+     background: #3700b3;
+ }
+ 
+ .table-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 10px;
+     overflow: hidden;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+ }
+ 
+ table {
+     width: 100%;
+     border-collapse: collapse;
+     background: white;
+     border-radius: 8px;
+     overflow: hidden;
+ }
+ 
+ thead {
+     background: linear-gradient(135deg, #6a11cb, #2575fc);
+     color: white;
+     text-align: left;
+     font-size: 1rem;
+     font-weight: bold;
+ }
+ 
+ th {
+     padding: 12px;
+ }
+ 
+ tr {
+     border-bottom: 1px solid #ddd;
+ }
+ 
+ tbody tr:nth-child(odd) {
+     background: #f9f9f9;
+ }
+ 
+ td {
+     padding: 12px;
+     font-size: 1rem;
+     font-weight: bold;
+ }
+ 
+ td a {
+     text-decoration: none;
+     font-weight: bold;
+     font-size: 1rem;
+     transition: color 0.3s ease;
+ }
+ 
+ td a:hover {
+     color: #6a11cb;
+ }
+ 
+ .button {
+     background: #ff7eb3;
+     color: white;
+     border: none;
+     padding: 8px 15px;
+     font-size: 14px;
+     font-weight: bold;
+     border-radius: 6px;
+     cursor: pointer;
+     transition: 0.3s ease;
+     box-shadow: 0 4px 10px rgba(255, 118, 136, 0.4);
+ }
+ 
+ .button:hover {
+     background: #ff4f7a;
+ }
+ 
+ tbody tr:hover {
+     background: #eef2ff;
+ }
+ 
+ .fav-column {
+     text-align: center;
+ }

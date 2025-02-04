@@ -1,0 +1,50 @@
+<div class="body-page">
+    <div class="page-header container">
+        <div class="header-text">
+            Welcome to BookShelf!
+        </div>
+    </div>
+    <div class="tools-container">
+        <div class="buttons-header">
+            <div>
+                <button class="button" routerLink='favourites'>Favourites</button>
+            </div>
+            <div>
+                <button class="button">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Filter book name" #filter>
+        <button class="search-button" type="button" (click)="filterResults(filter.value)">Search</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+
+                    <th>
+                        Book name
+                    </th>
+                    <th>
+                        Release date
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of filteredBooks">
+
+                    <td>
+                        <a routerLink={{getRouterLinkUrl(book.id)}}>{{book.name}}</a></td>
+                    <td> {{book.released | date: 'dd/MM/yyyy'}}</td>
+                    <td class="fav-column" (click)="updateFavouritesList(book)">
+                        <button class="button" *ngIf="getBookStatus(book.id) == true"> Dislike</button>
+                        <button class="button" *ngIf="getBookStatus(book.id) == false"> Like</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

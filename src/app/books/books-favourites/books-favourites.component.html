@@ -1,0 +1,34 @@
+<div class="body-page">
+    <div class="page-header container">
+        <div class="header-text">
+            Welcome to BookShelf!
+        </div>
+    </div>
+
+    <div class="card-container" *ngIf="likedBooks.length > 0">
+        <div *ngFor="let book of likedBooks">
+            <div class="card">
+                <div class="card-content">
+                    <div>
+                        {{book.name}}
+                    </div>
+                    <div>
+                        Released: {{book.released | date: 'dd/MM/yyyy'}}
+                    </div>
+                    <div>
+                        Pages: {{book.numberOfPages}}
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button class="button" routerLink='../book/{{book.id}}'>Go to details</button>
+                    <button class="button" (click)="removeFromFav(book)">Dislike</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="likedBooks.length == 0" class="warning-message">
+        Ooops! You don't have favourite books...
+    </div>
+
+</div>
