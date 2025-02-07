@@ -10,5 +10,4 @@ export interface BookInformation {
     publisher: string;
     released: string;
     url: string;
-    isLiked: boolean;
 }

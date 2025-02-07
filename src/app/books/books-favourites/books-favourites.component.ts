@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { BookInformation } from '../../interfaces/book-information';
+import { FavouriteBooksService } from '../../services/favourite-books.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-books-favourites',
@@ -8,17 +10,15 @@ import { BookInformation } from '../../interfaces/book-information';
   templateUrl: './books-favourites.component.html',
   styleUrl: './books-favourites.component.css'
 })
-export class BooksFavouritesComponent implements OnInit{
+export class BooksFavouritesComponent{
 
-  public likedBooks: BookInformation[] = [];
-  ngOnInit(): void {
-    const string = localStorage.getItem('favourites');
-    if (string) this.likedBooks = JSON.parse(string);
+  public likedBooks$: Observable<BookInformation[]> = of([]);
+
+  constructor(private favouritesBooksService: FavouriteBooksService){
+    this.likedBooks$ = this.favouritesBooksService.likedBooks$; 
   }
 
-  public removeFromFav(book: BookInformation) : void {
-    this.likedBooks = this.likedBooks.filter(obj => {return obj !== book});
-    localStorage.setItem('favourites', JSON.stringify(this.likedBooks));
+  public updateFavouritesList(book: BookInformation) : void {
+    this.favouritesBooksService.updateFavouritesList(book);
   }
-  
 }

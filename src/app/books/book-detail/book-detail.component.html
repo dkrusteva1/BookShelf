@@ -1,4 +1,4 @@
-<div class="body-page" *ngIf="book">
+<div class="body-page" *ngIf="book !== undefined">
     <div class="page-header container">
         <div class="header-text">
             Welcome to BookShelf!
@@ -7,8 +7,10 @@
     <div class="header-buttons">
         <button class="button" routerLink="../../favourites"> Favourites </button>
         <button class="button" routerLink="./../../">Home</button>
-        <button class="button" class="button" *ngIf="getBookStatus(book.id) == true" (click)="updateFavouritesList(book)"> Like</button>
-        <button class="button" class="button" *ngIf="getBookStatus(book.id) == false" (click)="updateFavouritesList(book)"> Dislike</button>
+        <div (click)="updateFavouritesList(book)">
+            <button class="button" class="button" *ngIf="getBookStatus(book.id) == true"> Dislike </button>
+            <button class="button" class="button" *ngIf="getBookStatus(book.id) == false"> Like</button>
+        </div>
     </div>
     <div class="table-container">
         <table>
@@ -17,7 +19,7 @@
                     Book name
                 </th>
                 <td>
-                    {{book?.name}}
+                    {{book.name}}
                 </td>
             </tr>
             <tr>

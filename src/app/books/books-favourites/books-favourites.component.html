@@ -4,9 +4,8 @@
             Welcome to BookShelf!
         </div>
     </div>
-
-    <div class="card-container" *ngIf="likedBooks.length > 0">
-        <div *ngFor="let book of likedBooks">
+    <div class="card-container">
+        <div *ngFor="let book of (likedBooks$ | async)">
             <div class="card">
                 <div class="card-content">
                     <div>
@@ -21,14 +20,10 @@
                 </div>
                 <div class="buttons-container">
                     <button class="button" routerLink='../book/{{book.id}}'>Go to details</button>
-                    <button class="button" (click)="removeFromFav(book)">Dislike</button>
+                    <button class="button" (click)="updateFavouritesList(book)">Dislike</button>
                 </div>
 
             </div>
         </div>
     </div>
-    <div *ngIf="likedBooks.length == 0" class="warning-message">
-        Ooops! You don't have favourite books...
-    </div>
-
 </div>
