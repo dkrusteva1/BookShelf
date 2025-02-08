@@ -10,7 +10,7 @@
     color: white;
     text-align: center;
     padding: 20px;
-    font-size: 24px;
+    /* font-size: 24px; */
     font-weight: bold;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -77,4 +77,10 @@
 .warning-message {
     font-size: 2rem;
     font-weight: bold;
+}
+
+div a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
 }

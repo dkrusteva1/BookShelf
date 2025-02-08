@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IceAndFireService } from '../../services/ice-and-fire.service';
 import { BookInformation } from '../../interfaces/book-information';
 import { FavouriteBooksService } from '../../services/favourite-books.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-books-list',
@@ -13,7 +14,7 @@ import { FavouriteBooksService } from '../../services/favourite-books.service';
 export class BooksListComponent implements OnInit {
   public books: BookInformation[];
   public filteredBooks: BookInformation[] = [];
-  constructor(private iceAndFireService: IceAndFireService, private favouriteBooksService: FavouriteBooksService) { }
+  constructor(private iceAndFireService: IceAndFireService, private favouriteBooksService: FavouriteBooksService, private auth: AuthenticationService) { }
 
   public ngOnInit() {
     this.iceAndFireService.getBooks().subscribe(books => {
@@ -23,7 +24,7 @@ export class BooksListComponent implements OnInit {
   }
 
   public getRouterLinkUrl(id: number): string {
-    return `book/${id}`;
+    return `./../book/${id}`;
   }
 
   public updateFavouritesList(selectedBook: BookInformation): void {
@@ -45,4 +46,7 @@ export class BooksListComponent implements OnInit {
     );
   }
 
+  public logout() : void {
+    this.auth.logout();
+  }
 }

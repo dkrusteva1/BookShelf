@@ -1,12 +1,13 @@
 <div class="body-page" *ngIf="book !== undefined">
     <div class="page-header container">
-        <div class="header-text">
-            Welcome to BookShelf!
-        </div>
+        <a routerLink="./../../home">
+            <div class="header-text">
+                Welcome to BookShelf!
+            </div>
+        </a>
     </div>
     <div class="header-buttons">
         <button class="button" routerLink="../../favourites"> Favourites </button>
-        <button class="button" routerLink="./../../">Home</button>
         <div (click)="updateFavouritesList(book)">
             <button class="button" class="button" *ngIf="getBookStatus(book.id) == true"> Dislike </button>
             <button class="button" class="button" *ngIf="getBookStatus(book.id) == false"> Like</button>

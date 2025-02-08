@@ -9,6 +9,15 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+div a,
+div a:hover,
+div a:focus,
+div a:active {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
 .body-page {
     display: flex;
     flex-direction: column;

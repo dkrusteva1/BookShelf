@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BookInformation } from '../../interfaces/book-information';
 import { FavouriteBooksService } from '../../services/favourite-books.service';
 import { Observable, of } from 'rxjs';

@@ -7,16 +7,16 @@
     <div class="tools-container">
         <div class="buttons-header">
             <div>
-                <button class="button" routerLink='favourites'>Favourites</button>
+                <button class="button" routerLink='./../favourites'>Favourites</button>
             </div>
             <div>
-                <button class="button">Login</button>
+                <button class="button" routerLink="../" (click)="logout()">Logout</button>
             </div>
         </div>
     </div>
-    <div class="search-container">
+    <div class="search-container" (click)="filterResults(filter.value)" (keyup.enter)="filterResults(filter.value)">
         <input type="text" class="search-box" placeholder="Filter book name" #filter>
-        <button class="search-button" type="button" (click)="filterResults(filter.value)">Search</button>
+        <button class="search-button" type="button">Search</button>
     </div>
     <div class="table-container">
         <table>

@@ -1,10 +1,12 @@
 <div class="body-page">
     <div class="page-header container">
-        <div class="header-text">
-            Welcome to BookShelf!
-        </div>
+        <a routerLink="./../home">
+            <div class="header-text">
+                Welcome to BookShelf!
+            </div>
+        </a>
     </div>
-    <div class="card-container">
+    <div class="card-container" *ngIf="(likedBooks$ | async)!.length > 0; else noBooks">
         <div *ngFor="let book of (likedBooks$ | async)">
             <div class="card">
                 <div class="card-content">
@@ -26,4 +28,9 @@
             </div>
         </div>
     </div>
+    <ng-template #noBooks>
+        <div class=warning-message>
+            Ooops! You don't have favourite books!
+        </div>
+    </ng-template>
 </div>

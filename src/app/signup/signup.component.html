@@ -1,0 +1,9 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-container">
+    <input class="input" id="username" type="text" formControlName="username" placeholder="Email" required>
+    <input class="input" id="password" type="text" formControlName="password" placeholder="Password" required>
+    <input class="input" id="password" type="text" formControlName="confirmPassword" placeholder="Confirm password" required>
+    <div *ngIf="signupForm.errors || signupForm.errors?.['minlength'] || signupForm.invalid" class="error-message">
+        Enter valid email and at least 5 digit password.
+    </div>
+    <button class="button" type="submit" [disabled]="!signupForm.valid">Submit</button>
+</form>

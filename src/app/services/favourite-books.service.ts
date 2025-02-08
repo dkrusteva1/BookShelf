@@ -11,7 +11,8 @@ export class FavouriteBooksService {
   constructor() { }
 
   private loadFromLocalStorage(): BookInformation[] {
-    const string = localStorage.getItem('favourites');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+    const string = localStorage.getItem(`${currentUser}fav`);
     return string ? JSON.parse(string) : [];
   }
 
@@ -24,13 +25,13 @@ export class FavouriteBooksService {
   public updateFavouritesList(selectedBook: BookInformation): void {
     let likedBooks: BookInformation[] = [];
     this.likedBooks$.subscribe(books => likedBooks = books);
-    
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')!);
     if (this.getBookStatus(selectedBook.id)) {
       likedBooks = likedBooks.filter(book => book.id !== selectedBook.id);
     } else {
       likedBooks = [...likedBooks, selectedBook];
     }
-    localStorage.setItem('favourites', JSON.stringify(likedBooks));
+    localStorage.setItem(`${currentUser}fav`, JSON.stringify(likedBooks));
     this.likedBooks$.next(likedBooks);
   }
 }

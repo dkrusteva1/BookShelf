@@ -1,0 +1,20 @@
+<div class="page">
+    <h1 class="welcome-message">
+        Welocome to BookShelf!
+    </h1>
+    <h2 class="welcome-message">
+        Manage your favourite books!
+    </h2>
+    <button class="button" (click)="toggleLoginForm()" *ngIf="!showLoginForm && !showSignupForm">
+        Log In
+    </button>
+    <ng-container *ngIf="showLoginForm">
+        <app-login></app-login>
+    </ng-container>
+    <button class="button" (click)="toggleSignupForm()" *ngIf="!showSignupForm && !showLoginForm">
+       Sign up
+    </button>
+    <ng-container *ngIf="showSignupForm">
+        <app-signup></app-signup>
+    </ng-container>
+</div>
