@@ -7,12 +7,14 @@ import { provideHttpClient } from '@angular/common/http';
 import { BookInformation } from '../../interfaces/book-information';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AuthenticationService } from '../../services/authentication.service';
 
 describe('BooksListComponent', () => {
   let component: BooksListComponent;
   let fixture: ComponentFixture<BooksListComponent>;
   let iceAndFireService: IceAndFireService;
   let favouriteBooksService: FavouriteBooksService;
+  let authService: AuthenticationService;
 
 
   const mockBooks = [{name: 'Mock Book1 ', authors: ['Author 1'], released: '2000-01-01' },
@@ -30,12 +32,15 @@ describe('BooksListComponent', () => {
       getBooks: jasmine.createSpy('getBooks').and.returnValue(of(mockBooks))
     };
 
+    const spyAuthService = jasmine.createSpyObj('AuthenticationService', ['logout']);
+
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([])],
       declarations: [BooksListComponent],
       providers: [provideHttpClient(),
       { provide: IceAndFireService, useValue: spyIceAndFireService },
-      {provide: FavouriteBooksService,useValue: spy}
+      {provide: FavouriteBooksService,useValue: spy}, 
+      {provide: AuthenticationService, useValue: spyAuthService}
       ],
     })
       .compileComponents();
@@ -43,6 +48,7 @@ describe('BooksListComponent', () => {
     fixture = TestBed.createComponent(BooksListComponent);
     iceAndFireService = TestBed.inject(IceAndFireService);
     favouriteBooksService = TestBed.inject(FavouriteBooksService);
+    authService = TestBed.inject(AuthenticationService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -60,7 +66,7 @@ describe('BooksListComponent', () => {
 
   it('should make the correct url link', () => {
     const result = component.getRouterLinkUrl(1);
-    expect(result).toEqual('book/1')
+    expect(result).toEqual('./../1')
   });
 
   it('should call the getBookStatus from the favouriteBook service when getBookStatus is called', () => {
@@ -77,4 +83,9 @@ describe('BooksListComponent', () => {
     component.filterResults('Book1');
     expect(component.filteredBooks).toEqual([{id: 1, name: 'Mock Book1 ', authors: ['Author 1'], released: '2000-01-01' }] as BookInformation[]);
   });
+
+  it('should call the authentication service on logout button click', () => {
+    component.logout();
+    expect(authService.logout).toHaveBeenCalledTimes(1);
+  })
 });

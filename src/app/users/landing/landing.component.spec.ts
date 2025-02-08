@@ -20,4 +20,17 @@ describe('LandingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should open the signup form and not the login', () => {
+    expect(component.showLoginForm).toBe(false);
+    component.toggleLoginForm();
+    expect(component.showLoginForm).toBe(true);
+  });
+
+  it('should open the login form and not the signup', () => {
+    expect(component.showSignupForm).toBe(false);
+    component.toggleSignupForm();
+    expect(component.showSignupForm).toBe(true);
+  });
+
 });

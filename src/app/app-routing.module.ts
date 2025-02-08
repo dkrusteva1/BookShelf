@@ -9,7 +9,6 @@ const routes: Routes = [
     loadChildren: () => import('./books/books-routing.module').then(m => m.BooksRoutingModule)
   },
   { path: '', loadChildren: () => import('./users/users-routing.module').then(m => m.UsersRoutingModule) },
-
 ];
 
 @NgModule({

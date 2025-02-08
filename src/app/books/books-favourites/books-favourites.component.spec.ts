@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BooksFavouritesComponent } from './books-favourites.component';
 import { FavouriteBooksService } from '../../services/favourite-books.service';
 import { BookInformation } from '../../interfaces/book-information';
+import { of } from 'rxjs';
 
 describe('BooksFavouritesComponent', () => {
   let component: BooksFavouritesComponent;
@@ -24,10 +25,12 @@ describe('BooksFavouritesComponent', () => {
   });
 
   it('should create', () => {
+    component.likedBooks$ = of([]);
     expect(component).toBeTruthy();
   });
 
   it('should call the service method updateFavouritesList with the selected book', () => {
+    component.likedBooks$ = of([]);
     const selectedBook: BookInformation = {id: 10, name: 'Some name', authors: [], mediaType: '', numberOfPages: 476, characters: [], country: 'Bulgaria', isbn: '1234', publisher: 'Knigomaniq', released: '1999-02-02T00:00:00', url: 'https://anapioficeandfire.com/api/books/2'};
     component.updateFavouritesList(selectedBook);
     expect(favouritesBooksService.updateFavouritesList).toHaveBeenCalledOnceWith(selectedBook);
