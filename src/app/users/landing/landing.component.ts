@@ -18,6 +18,5 @@ export class LandingComponent {
 
   public toggleSignupForm() {
     this.showSignupForm = !this.showSignupForm;
-    console.log(this.showSignupForm)
   }
 }

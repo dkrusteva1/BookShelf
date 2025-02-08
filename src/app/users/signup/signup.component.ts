@@ -24,7 +24,7 @@ export class SignupComponent {
       const password = this.signupForm.value.password;
       localStorage.setItem(username!, JSON.stringify(password));
       localStorage.setItem('currentUser', JSON.stringify(username));
-      this.router.navigate(['/home']);
+      this.router.navigate(['./books/home']);
     };
 
     private validateConfirmPassword(signupForm: AbstractControl): {notSame: boolean} | null{

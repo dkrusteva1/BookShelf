@@ -4,10 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooksModule } from './books/books.module';
 import { provideHttpClient } from '@angular/common/http';
-import { LandingComponent } from './landing/landing.component';
-import { LoginComponent } from './login/login.component';
+import { LandingComponent } from './users/landing/landing.component';
+import { LoginComponent } from './users/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './users/signup/signup.component';
 
 @NgModule({
   declarations: [

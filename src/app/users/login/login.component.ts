@@ -29,7 +29,7 @@ export class LoginComponent {
       localStorage.setItem('currentUser', JSON.stringify(username));
 
     if (pass === password) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['./books/home']);
      }
     }
   };

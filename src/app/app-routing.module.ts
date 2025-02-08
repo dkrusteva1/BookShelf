@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookDetailComponent } from './books/book-detail/book-detail.component';
-import { BooksListComponent } from './books/books-list/books-list.component';
-import { BooksFavouritesComponent } from './books/books-favourites/books-favourites.component';
-import { LandingComponent } from './landing/landing.component';
-import { authenticationGuard } from './authentication.guard';
+import { authenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
-  {path: '', component: LandingComponent},
-  { path: 'home', component: BooksListComponent, canLoad: [authenticationGuard] },
-  { path: 'book/:id', component: BookDetailComponent, canLoad: [authenticationGuard] },
-  { path: 'favourites', component: BooksFavouritesComponent, canLoad: [authenticationGuard] }
+  {
+    path: 'books',
+    canActivateChild: [authenticationGuard],
+    loadChildren: () => import('./books/books-routing.module').then(m => m.BooksRoutingModule)
+  },
+  { path: '', loadChildren: () => import('./users/users-routing.module').then(m => m.UsersRoutingModule) },
+
 ];
 
 @NgModule({

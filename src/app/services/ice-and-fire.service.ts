@@ -16,7 +16,6 @@ export class IceAndFireService {
   }
 
   public getBookById(id: string): Observable<any> {
-    console.log(`${this.baseUrl}/${id}`)
     return this.httpClient.get(`${this.baseUrl}/${id}`);
   }
 }

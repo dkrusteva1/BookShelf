@@ -24,7 +24,7 @@ export class BooksListComponent implements OnInit {
   }
 
   public getRouterLinkUrl(id: number): string {
-    return `./../book/${id}`;
+    return `./../${id}`;
   }
 
   public updateFavouritesList(selectedBook: BookInformation): void {
