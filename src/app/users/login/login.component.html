@@ -1,5 +1,5 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container">
-    <input class="input" id="username" type="text" formControlName="username" placeholder="Email" required>
-    <input class="input" id="password" type="text" formControlName="password" placeholder="Password" required>
-    <button class="button" type="submit" [disabled]="!loginForm.valid">Submit</button>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container" data-test="login-form">
+    <input class="input" id="username" type="text" formControlName="username" data-test="username-input" placeholder="Email" required>
+    <input class="input" id="password" type="text" formControlName="password" data-test="password-input" placeholder="Password" required>
+    <button class="button" type="submit" [disabled]="!loginForm.valid" data-test="button-submit">Submit</button>
 </form>
