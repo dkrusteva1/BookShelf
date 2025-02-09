@@ -7,13 +7,13 @@
         </a>
     </div>
     <div class="header-buttons">
-        <button class="button" routerLink="../favourites"> Favourites </button>
+        <button class="button" routerLink="../favourites" data-test="favourites-details"> Favourites </button>
         <div (click)="updateFavouritesList(book)">
-            <button class="button" class="button" *ngIf="getBookStatus(book.id) == true"> Dislike </button>
-            <button class="button" class="button" *ngIf="getBookStatus(book.id) == false"> Like</button>
+            <button class="button" class="button" *ngIf="getBookStatus(book.id) == true" data-test="details-dislike-button"> Dislike </button>
+            <button class="button" class="button" *ngIf="getBookStatus(book.id) == false" data-test="details-like-button"> Like</button>
         </div>
     </div>
-    <div class="table-container">
+    <div class="table-container" data-test="details-table">
         <table>
             <tr>
                 <th>

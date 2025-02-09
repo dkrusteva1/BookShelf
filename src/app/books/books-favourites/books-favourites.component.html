@@ -1,6 +1,6 @@
 <div class="body-page">
     <div class="page-header container">
-        <a routerLink="./../home">
+        <a routerLink="./../home" data-test="home-page">
             <div class="header-text">
                 Welcome to BookShelf!
             </div>
@@ -8,27 +8,27 @@
     </div>
     <div class="card-container">
         <div *ngFor="let book of (likedBooks$ | async)">
-            <div class="card">
+            <div class="card" data-test="favourites-card">
                 <div class="card-content">
-                    <div>
+                    <div data-test="favourites-book-name">
                         {{book.name}}
                     </div>
-                    <div>
+                    <div data-test="favourites-book-released">
                         Released: {{book.released | date: 'dd/MM/yyyy'}}
                     </div>
-                    <div>
+                    <div data-test="favourites-book-page">
                         Pages: {{book.numberOfPages}}
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button class="button" routerLink='../{{book.id}}'>Go to details</button>
-                    <button class="button" (click)="updateFavouritesList(book)">Dislike</button>
+                    <button class="button" routerLink='../{{book.id}}' data-test="details">Go to details</button>
+                    <button class="button" (click)="updateFavouritesList(book)" data-test="dislike">Dislike</button>
                 </div>
 
             </div>
         </div>
     </div>
-    <div class=warning-message *ngIf="(likedBooks$ | async)?.length == 0">
+    <div class=warning-message *ngIf="(likedBooks$ | async)?.length == 0" data-test="no-books">
         Ooops! You don't have favourite books!
     </div>
 </div>
