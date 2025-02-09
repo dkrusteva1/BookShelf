@@ -4,6 +4,12 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
+To install node_modules
+
+```bash
+npm install
+```
+
 To start a local development server, run:
 
 ```bash
@@ -11,20 +17,6 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
@@ -46,14 +38,20 @@ ng test
 
 ## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+For end-to-end (e2e) testing with Cypress, run:
 
 ```bash
-ng e2e
+npx cypress open
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## BookShelf description
 
-## Additional Resources
+The aim of this web appliation is to add books to favourites. 
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+First you have to create an account to be able to see the books. 
+If you have already an account you can use your credentials and explore the list of books.
+
+The home page contains a table with list of books - you can Like the (add to favourites) or Dislike them (remove from favourites).
+Clicking on the name of the book will redirect you to a detail page - a table with information and button to the favourites page.
+
+From the favourites page you can see all liked book for this specific account. 

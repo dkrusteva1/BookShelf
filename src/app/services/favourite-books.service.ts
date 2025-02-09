@@ -22,6 +22,10 @@ export class FavouriteBooksService {
     return likedBooks.some(book => book.id === id);
   }
 
+  public updateList(): void {
+    this.likedBooks$.next(this.loadFromLocalStorage());
+  }
+
   public updateFavouritesList(selectedBook: BookInformation): void {
     let likedBooks: BookInformation[] = [];
     this.likedBooks$.subscribe(books => likedBooks = books);

@@ -17,10 +17,11 @@ export class BooksListComponent implements OnInit {
   constructor(private iceAndFireService: IceAndFireService, private favouriteBooksService: FavouriteBooksService, private auth: AuthenticationService) { }
 
   public ngOnInit() {
+    this.favouriteBooksService.updateList();
     this.iceAndFireService.getBooks().subscribe(books => {
       this.books = books.map((book: BookInformation, index: number) => ({ ...book as BookInformation, id: index + 1 }));
       this.filteredBooks = this.books;
-    })
+    });
   }
 
   public getRouterLinkUrl(id: number): string {

@@ -26,7 +26,7 @@ describe('BooksListComponent', () => {
   {id: 3,  name: 'Mock Book 3', authors: ['Author 3'], released: '2000-01-01' }] as BookInformation[];
 
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('FavouriteBookService', ['getBookStatus', 'updateFavouritesList']);
+    const spy = jasmine.createSpyObj('FavouriteBookService', ['getBookStatus', 'updateFavouritesList', 'updateList']);
 
     const spyIceAndFireService = {
       getBooks: jasmine.createSpy('getBooks').and.returnValue(of(mockBooks))
