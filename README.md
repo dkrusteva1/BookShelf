@@ -51,7 +51,7 @@ The aim of this web appliation is to add books to favourites.
 First you have to create an account to be able to see the books. 
 If you have already an account you can use your credentials and explore the list of books.
 
-The home page contains a table with list of books - you can Like the (add to favourites) or Dislike them (remove from favourites).
+The home page contains a table with list of books - you can Like them (add to favourites) or Dislike them (remove from favourites).
 Clicking on the name of the book will redirect you to a detail page - a table with information and button to the favourites page.
 
-From the favourites page you can see all liked book for this specific account. 
+From the favourites page you can see all liked books for this specific account. 
